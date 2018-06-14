@@ -34,7 +34,7 @@ int main() {
       token = strtok(NULL, ",");
       coefs= new int[order+1];
       for  (int i=0; i<=order && token; i++) {
-	coefs[i] = atof(token);
+	coefs[i] = (int)atof(token);
 	token = strtok(NULL, ",");
 
       }
