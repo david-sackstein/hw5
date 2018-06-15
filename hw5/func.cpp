@@ -4,6 +4,12 @@
 
 using namespace std;
 
+func::func() :
+    maxVal_(200),
+    minVal_(-200)
+{
+}
+
 func& func::operator<<(const int& x)
 {
     fmap_[x] = apply(x);
@@ -14,7 +20,7 @@ ostream& operator<<(ostream& os, const func& f)
 {
     f.print(os);
     f.plot(os);
-    
+
     return os;
 }
 
@@ -24,7 +30,7 @@ void func::plot(ostream& os) const
 
     sortImage.clear();
     for (map<int, int>::const_iterator it = fmap_.begin();
-         it != fmap_.end(); ++it)
+        it != fmap_.end(); ++it)
     {
         sortImage.push_back(it->second);
     }
@@ -32,7 +38,7 @@ void func::plot(ostream& os) const
     reverse(sortImage.begin(), sortImage.end());
 
     for (vector<int>::iterator it_im = sortImage.begin();
-         it_im != sortImage.end(); ++it_im)
+        it_im != sortImage.end(); ++it_im)
     {
         if (it_im != sortImage.begin() && *it_im == *(it_im - 1))
         {
@@ -43,7 +49,7 @@ void func::plot(ostream& os) const
     //Now  sortImage holds all the outputs in fmap_ sorted reversed and unique
 
     for (vector<int>::iterator it_im = sortImage.begin();
-         it_im != sortImage.end(); ++it_im)
+        it_im != sortImage.end(); ++it_im)
     {
         int x_anchor = minVal_;
         // print y axis
@@ -55,7 +61,7 @@ void func::plot(ostream& os) const
             os << "  " << *it_im;
 
         for (map<int, int>::const_iterator it_dom = fmap_.begin();
-             it_dom != fmap_.end(); ++it_dom)
+            it_dom != fmap_.end(); ++it_dom)
         {
             //print (x,y)
             if (it_dom->second == *it_im)

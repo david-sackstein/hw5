@@ -9,6 +9,7 @@ using std::ostream;
 
 class func {
 public:
+    func();
     virtual ~func(){}
     func& operator<<(const int& x);
     virtual int apply(int) const = 0;
