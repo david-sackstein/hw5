@@ -48,3 +48,7 @@ ratfunc ratfunc::operator/(const ratfunc& rhs) const
     return *this;
 }
 
+func* ratfunc::clone() const
+{
+    return new ratfunc(*this);
+}

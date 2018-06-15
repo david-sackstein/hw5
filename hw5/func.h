@@ -9,10 +9,11 @@ using std::ostream;
 
 class func {
 public:
-
+    virtual ~func(){}
     func& operator<<(const int& x);
     virtual int apply(int) const = 0;
-
+    virtual func* clone() const = 0;
+    
 protected:
 
     friend ostream& operator<<(ostream& os, const func& f);

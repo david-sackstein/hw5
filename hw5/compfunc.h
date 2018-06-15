@@ -8,6 +8,9 @@ using namespace std;
 class compfunc : public func {
 public:
     compfunc(const func& q, const func& p);
+    compfunc(const compfunc& other);
+    ~compfunc();
+    compfunc& operator=(const compfunc& rhs);
 
     compfunc operator+(const compfunc& rhs) const;
     compfunc operator-(const compfunc& rhs) const;
@@ -19,9 +22,11 @@ protected:
     void print(ostream& os) const;
     compfunc add(const compfunc& rhs, int sign) const;
 
-    const func& q_;
-    const func& p_;
+    const func* q_;
+    const func* p_;
 
+private:
+    func* clone() const;
 };
 
 #endif

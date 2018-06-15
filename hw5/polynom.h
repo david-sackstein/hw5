@@ -29,6 +29,9 @@ protected:
 
     int n_; //order of the polynom
     int* coefs_; //coefficients 
+
+private:
+    func* clone() const;
 };
 
 

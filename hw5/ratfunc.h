@@ -25,6 +25,8 @@ protected:
     const polynom p_;
     const polynom q_;
 
+private:
+    func* clone() const;
 };
 
 

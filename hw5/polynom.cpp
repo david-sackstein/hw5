@@ -133,3 +133,8 @@ void polynom::printcoefs(ostream& os)  const {
         }
     }
 }
+
+func* polynom::clone() const
+{
+    return new polynom(*this);
+}
