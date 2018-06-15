@@ -19,6 +19,9 @@ public:
     polynom polynom::operator*(const polynom& rhs) const;
 
     int apply(int) const;
+    polynom polynom::Derivative() const;
+    polynom polynom::Integral() const;
+
     void printcoefs(ostream&)  const;
 
 protected:

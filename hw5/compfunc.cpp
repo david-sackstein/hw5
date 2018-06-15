@@ -35,10 +35,7 @@ compfunc& compfunc::operator=(const compfunc& rhs)
 
 void compfunc::print(ostream& os) const
 {
-    //p_.plot(os);
-    //os << "/";
-    //q_.printcoefs(os);
-    //TODO
+    plot(os);
 }
 
 int compfunc::apply(int x) const

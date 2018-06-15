@@ -12,7 +12,8 @@ using namespace std;
 
 const int MAXLINE = 256;
 
-
+//TODO: erase
+#include <fstream>
 
 int main() {
   
@@ -20,8 +21,10 @@ int main() {
   char func_cmd[MAXLINE], func_name[MAXLINE], func_value[MAXLINE];
   char* token;
  
-  while(!cin.eof()) {
-    cin>>func_cmd>>func_name>>func_value;
+  std::ifstream input("in1");
+
+  while(!input.eof()) {
+    input >>func_cmd>>func_name>>func_value;
     if (!strcmp(func_cmd, "//")) {
       continue;
     }

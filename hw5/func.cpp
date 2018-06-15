@@ -5,8 +5,8 @@
 using namespace std;
 
 func::func() :
-    maxVal_(200),
-    minVal_(-200)
+    maxVal_(5),
+    minVal_(-5)
 {
 }
 

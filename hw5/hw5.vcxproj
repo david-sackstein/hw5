@@ -155,12 +155,14 @@
     <ClCompile Include="func.cpp" />
     <ClCompile Include="hw5.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="mathexception.cpp" />
     <ClCompile Include="polynom.cpp" />
     <ClCompile Include="ratfunc.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="compfunc.h" />
     <ClInclude Include="func.h" />
+    <ClInclude Include="mathexception.h" />
     <ClInclude Include="polynom.h" />
     <ClInclude Include="ratfunc.h" />
   </ItemGroup>

@@ -15,6 +15,10 @@ public:
     ratfunc operator*(const ratfunc& rhs) const;
     ratfunc operator/(const ratfunc& rhs) const;
 
+    ratfunc Derivative() const;
+
+    void printRat(ostream& os) const;
+
 protected:
 
     int apply(int) const;
