@@ -6,12 +6,10 @@ exe = WolfraMamat
 all: $(exe)
 
 $(exe): $(obj)
-	echo $(obj)
 	g++ -g $(obj) -o $@
 
 %.o: %.cpp $(hdr)
-# g++ -c -g -Wall $< -o $@
-	echo $(obj)
+	g++ -c -g -Wall $< -o $@
 		
 clean: 
 	rm $(obj) $(exe)

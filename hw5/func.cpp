@@ -1,13 +1,12 @@
 #include "func.h"
 #include <vector>
 #include <algorithm>
-#include <limits>
 
 using namespace std;
 
 func::func() :
-	maxVal_(numeric_limits<int>::min()),
-    minVal_(numeric_limits<int>::max())
+    maxVal_(INT32_MIN),
+    minVal_(INT32_MAX)
 {
 }
 
@@ -27,8 +26,9 @@ func& func::operator<<(const int& x)
         maxVal_ = x;
     }
 
-    fmap_[x] = apply(x);    
-    
+    int res = apply(x);    
+    fmap_[x] = res;
+
     return *this;
 }
 
@@ -118,12 +118,30 @@ void func::plot(ostream& os) const
             }
         }
     }//for sortImage
-    //print x axis
+     //print x axis
     cout << " ";
     for (int i = minVal_; i < maxVal_ + 1; i++)
     {
         if (i < 0) os << " " << i;
         else os << "  " << i;
     }
+
+    //os << "\n"; int i = minVal_;
+    //for (vector<int>::iterator it_im = sortImage.begin();
+    //    it_im != sortImage.end(); ++it_im)
+    //{
+    //    for (map<int, int>::const_iterator it_dom = fmap_.begin();
+    //        it_dom != fmap_.end(); ++it_dom)
+    //    {
+    //        //print (x,y)
+    //        if (it_dom->second == *it_im)
+    //        {
+    //            os << "(" << it_dom->first << "," << *it_im << ")\n";
+    //        }
+    //    }
+
+    //    i++;
+    //}
+
     os << endl;
 }

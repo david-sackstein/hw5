@@ -14,7 +14,7 @@ public:
 
     compfunc operator+(const compfunc& rhs) const;
     compfunc operator-(const compfunc& rhs) const;
-    compfunc compfunc::operator*(const compfunc& rhs) const;
+    compfunc operator*(const compfunc& rhs) const;
 
 protected:
 

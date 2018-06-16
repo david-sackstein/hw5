@@ -3,9 +3,9 @@
 #course
 echo "Test course:"
 ../WolfraMamat < in1 > test_c1.out
-diff out1  test_c.out
+diff out1  test_c1.out
 
-cat input1.txt | valgrind --tool=memcheck --leak-check=full ../Kindergarten  > valcheck1 2>&1
+cat in1 | valgrind --tool=memcheck --leak-check=full ../WolfraMamat  > valcheck1 2>&1
 # extract the number of errors from the log
 LOG_ERROR=$(cat valcheck1 | grep "ERROR SUMMARY:" | cut -d' ' -f4)
 
@@ -17,9 +17,9 @@ else
 fi
 
 ../WolfraMamat < in2 > test_c2.out
-diff out2  test_c.out
+diff out2  test_c2.out
 
-cat input1.txt | valgrind --tool=memcheck --leak-check=full ../Kindergarten  > valcheck1 2>&1
+cat in2 | valgrind --tool=memcheck --leak-check=full ../WolfraMamat  > valcheck1 2>&1
 # extract the number of errors from the log
 LOG_ERROR=$(cat valcheck1 | grep "ERROR SUMMARY:" | cut -d' ' -f4)
 
@@ -29,4 +29,3 @@ then
 else
         echo "Memory X"
 fi
-

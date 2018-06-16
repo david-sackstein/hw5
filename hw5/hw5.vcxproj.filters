@@ -7,9 +7,6 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="hw5.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="func.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>

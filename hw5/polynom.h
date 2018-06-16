@@ -16,14 +16,14 @@ public:
 
     polynom operator+(const polynom& rhs) const;
     polynom operator-(const polynom& rhs) const;
-    polynom polynom::operator*(const polynom& rhs) const;
+    polynom operator*(const polynom& rhs) const;
 
     int apply(int) const;
-    polynom polynom::Derivative() const;
-    polynom polynom::Integral() const;
+    polynom Derivative() const;
+    polynom Integral() const;
 
     void printcoefs(ostream&)  const;
-    bool polynom::isZero() const;
+    bool isZero() const;
 
 protected:
 

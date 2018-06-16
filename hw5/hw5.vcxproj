@@ -153,7 +153,6 @@
   <ItemGroup>
     <ClCompile Include="compfunc.cpp" />
     <ClCompile Include="func.cpp" />
-    <ClCompile Include="hw5.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="mathexception.cpp" />
     <ClCompile Include="polynom.cpp" />
