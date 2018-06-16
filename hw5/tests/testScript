@@ -1,0 +1,32 @@
+#! /bin/bash
+
+#course
+echo "Test course:"
+../WolfraMamat < in1 > test_c1.out
+diff out1  test_c.out
+
+cat input1.txt | valgrind --tool=memcheck --leak-check=full ../Kindergarten  > valcheck1 2>&1
+# extract the number of errors from the log
+LOG_ERROR=$(cat valcheck1 | grep "ERROR SUMMARY:" | cut -d' ' -f4)
+
+if [ $LOG_ERROR = 0 ]
+then
+        echo "Memory V"
+else
+        echo "Memory X"
+fi
+
+../WolfraMamat < in2 > test_c2.out
+diff out2  test_c.out
+
+cat input1.txt | valgrind --tool=memcheck --leak-check=full ../Kindergarten  > valcheck1 2>&1
+# extract the number of errors from the log
+LOG_ERROR=$(cat valcheck1 | grep "ERROR SUMMARY:" | cut -d' ' -f4)
+
+if [ $LOG_ERROR = 0 ]
+then
+        echo "Memory V"
+else
+        echo "Memory X"
+fi
+
