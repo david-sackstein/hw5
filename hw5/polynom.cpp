@@ -88,16 +88,39 @@ polynom polynom::operator-(const polynom& rhs) const
     return add(rhs, -1);
 }
 
+
+bool polynom::isZero() const
+{
+    return n_ == 0 && coefs_[0] == 0;
+}
+
 polynom polynom::operator*(const polynom& rhs) const
 {
-    int newOrder = n_ + rhs.n_;
+    int newOrder;
+    int* newCoefs;
 
-    int* newCoefs = new int[newOrder + 1];
-    for (int i = 0; i < n_; i++)
+    if (isZero() || rhs.isZero())
     {
-        for (int j = 0; j < rhs.n_; j++)
+        newOrder = 0;
+        newCoefs = new int[1];
+        newCoefs[0] = 0;
+    }
+    else
+    {
+        newOrder = n_ + rhs.n_;
+
+        newCoefs = new int[newOrder + 1];
+        for (int i = 0; i < newOrder + 1; i++)
         {
-            newCoefs[i + j] = coefs_[i] * rhs.coefs_[j];
+            newCoefs[i] = 0;
+        }
+
+        for (int i = 0; i < n_ + 1; i++)
+        {
+            for (int j = 0; j < rhs.n_ + 1; j++)
+            {
+                newCoefs[i + j] += coefs_[i] * rhs.coefs_[j];
+            }
         }
     }
 
@@ -201,9 +224,6 @@ void polynom::print(ostream& os) const
     os << "Integral: ";
     Integral().printcoefs(os);
     os << "+C";
-    os << "\n";
-
-    plot(os);
     os << "\n";
 }
 

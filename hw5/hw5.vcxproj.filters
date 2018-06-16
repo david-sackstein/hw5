@@ -51,5 +51,6 @@
     <None Include="in2" />
     <None Include="out1" />
     <None Include="out2" />
+    <None Include="in3" />
   </ItemGroup>
 </Project>

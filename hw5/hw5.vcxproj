@@ -169,6 +169,7 @@
   <ItemGroup>
     <None Include="in1" />
     <None Include="in2" />
+    <None Include="in3" />
     <None Include="out1" />
     <None Include="out2" />
   </ItemGroup>

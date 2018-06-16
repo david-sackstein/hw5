@@ -5,21 +5,39 @@
 using namespace std;
 
 func::func() :
-    maxVal_(5),
-    minVal_(-5)
+    maxVal_(INT32_MIN),
+    minVal_(INT32_MAX)
 {
 }
 
 func& func::operator<<(const int& x)
 {
-    fmap_[x] = apply(x);
+    if (fmap_.empty())
+    {
+        minVal_ = x;
+        maxVal_ = x;
+    }
+    else if(x < minVal_)
+    {
+        minVal_ = x;
+    }
+    else if (x > maxVal_)
+    {
+        maxVal_ = x;
+    }
+
+    fmap_[x] = apply(x);    
+    
     return *this;
 }
 
 ostream& operator<<(ostream& os, const func& f)
 {
     f.print(os);
-    f.plot(os);
+    if(!f.fmap_.empty())
+    {
+        f.plot(os);
+    }
 
     return os;
 }

@@ -23,6 +23,7 @@ public:
     polynom polynom::Integral() const;
 
     void printcoefs(ostream&)  const;
+    bool polynom::isZero() const;
 
 protected:
 

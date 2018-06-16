@@ -10,9 +10,10 @@ ratfunc::ratfunc(const polynom& p, const polynom& q) :
 
 int ratfunc::apply(int x) const
 {
-    if (p_.apply(x) != 0)
+    int denom = p_.apply(x);
+    if (denom != 0)
     {
-        return q_.apply(x) / p_.apply(x);
+        return q_.apply(x) / denom;
     }
 
     throw mathexception ("divide by zero");
@@ -20,7 +21,7 @@ int ratfunc::apply(int x) const
 
 ratfunc ratfunc::add(const ratfunc& rhs, int sign) const
 {
-    return ratfunc(q_*rhs.p_ + p_*rhs.q_, p_ * q_);
+    return ratfunc(p_ * q_, q_*rhs.p_ + p_*rhs.q_);
 }
 
 ratfunc ratfunc::operator+(const ratfunc& rhs) const
@@ -35,34 +36,38 @@ ratfunc ratfunc::operator-(const ratfunc& rhs) const
 
 ratfunc ratfunc::operator*(const ratfunc& rhs) const
 {
-    return ratfunc(q_*rhs.q_, p_*rhs.p_);
+    return ratfunc(p_*rhs.p_, q_*rhs.q_);
 }
 
 ratfunc ratfunc::operator/(const ratfunc& rhs) const
 {
-    return ratfunc(q_*rhs.p_, p_*rhs.q_);
+    return ratfunc(p_*rhs.q_, q_*rhs.p_);
 }
 
 ratfunc ratfunc::Derivative() const
 {
-    return ratfunc(p_.Derivative()*q_ - q_.Derivative()*p_, q_*q_);
+    polynom num = q_.Derivative()*p_ - p_.Derivative()*q_;
+    polynom den  = p_*p_;
+    return ratfunc(den,num);
 }
 
 void ratfunc::printRat(ostream& os) const
 {
-    p_.printcoefs(os);
-    os << "/";
+    os << "(";
     q_.printcoefs(os);
+    os << ")/(";
+    p_.printcoefs(os);
+    os << ")";
 }
 
 void ratfunc::print(ostream& os) const
 {
     printRat(os);
+    os << "\n";
 
     os << "Derivative: ";
     Derivative().printRat(os);
-
-    plot(os);
+    os << "\n";
 }
 
 func* ratfunc::clone() const
