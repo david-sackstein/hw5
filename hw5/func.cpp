@@ -1,12 +1,13 @@
 #include "func.h"
 #include <vector>
 #include <algorithm>
+#include <climits>
 
 using namespace std;
 
 func::func() :
-    maxVal_(INT32_MIN),
-    minVal_(INT32_MAX)
+    maxVal_(INT_MIN),
+    minVal_(INT_MAX)
 {
 }
 

@@ -1,6 +1,5 @@
 #include "mathexception.h"
 
-
 mathexception::mathexception(const char* msg) :
     msg_(msg)
 {

@@ -1,0 +1,61 @@
+Error AddPoint:divide by zero
+Error AddPoint:divide by zero
+Error AddPoint:divide by zero
+d(x)=x^3-2x^2-5x+6
+Derivative: 3x^2-4x-5
+Integral: -2x^2+6x+C
+  6      *  
+  5
+  4
+  3
+  2
+  1
+  0*        *     *  
+ -1
+ -2
+ -3
+ -4            *  
+  -2 -1  0  1  2  3
+
+d(r)(x)=
+  8         *  
+  7
+  6   *  
+  5
+  4
+  3
+  2
+  1
+  0*  
+  -1  0  1  2
+
+p(x)=x^2+1
+Derivative: 2x
+Integral: x+C
+  5*           *  
+  4
+  3
+  2   *     *  
+  1      *  
+  -2 -1  0  1  2
+
+q(x)=-x^2-x+2
+Derivative: -2x-1
+Integral: 2x+C
+  2*  
+  1
+  0      *  
+  -1  0  1
+
+r(x)=(x^2+1)/(-x^2-x+2)
+Derivative: (-x^2+6x+1)/(x^4+2x^3-3x^2-4x+4)
+  0*  
+ -1      *  
+   0  1  2
+
+s(x)=-x+3
+Derivative: -1
+Integral: 3x+C
+  5*  
+  -2
+

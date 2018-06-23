@@ -8,7 +8,8 @@ using namespace std;
 
 class mathexception : public std::exception {
 public:
-    mathexception(const char* msg);
+	mathexception(const char* msg);
+	virtual ~mathexception() throw() {};
 
     const char* what() const throw();
 

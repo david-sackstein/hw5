@@ -29,3 +29,77 @@ then
 else
         echo "Memory X"
 fi
+
+#sn
+echo "sn:"
+../WolfraMamat < sn_in1 > sn1.out
+diff sn_out1  sn1.out
+
+cat sn_in1 | valgrind --tool=memcheck --leak-check=full ../WolfraMamat  > valcheck1 2>&1
+# extract the number of errors from the log
+LOG_ERROR=$(cat valcheck1 | grep "ERROR SUMMARY:" | cut -d' ' -f4)
+
+if [ $LOG_ERROR = 0 ]
+then
+        echo "Memory V"
+else
+        echo "Memory X"
+fi
+
+../WolfraMamat < sn_in2 > sn2.out
+diff sn_out2  sn2.out
+
+cat sn_in2 | valgrind --tool=memcheck --leak-check=full ../WolfraMamat  > valcheck1 2>&1
+# extract the number of errors from the log
+LOG_ERROR=$(cat valcheck1 | grep "ERROR SUMMARY:" | cut -d' ' -f4)
+
+if [ $LOG_ERROR = 0 ]
+then
+        echo "Memory V"
+else
+        echo "Memory X"
+fi
+
+../WolfraMamat < sn_in3 > sn3.out
+diff sn_out3  sn3.out
+
+cat sn_in3 | valgrind --tool=memcheck --leak-check=full ../WolfraMamat  > valcheck1 2>&1
+# extract the number of errors from the log
+LOG_ERROR=$(cat valcheck1 | grep "ERROR SUMMARY:" | cut -d' ' -f4)
+
+if [ $LOG_ERROR = 0 ]
+then
+        echo "Memory V"
+else
+        echo "Memory X"
+fi
+
+../WolfraMamat < sn_in4 > sn4.out
+diff sn_out4  sn4.out
+
+cat sn_in4 | valgrind --tool=memcheck --leak-check=full ../WolfraMamat  > valcheck1 2>&1
+# extract the number of errors from the log
+LOG_ERROR=$(cat valcheck1 | grep "ERROR SUMMARY:" | cut -d' ' -f4)
+
+if [ $LOG_ERROR = 0 ]
+then
+        echo "Memory V"
+else
+        echo "Memory X"
+fi
+
+#Inbar
+echo "Inbar:"
+../WolfraMamat < in1_InbarLotem > InbarLotem.out
+diff out1_InbarLotem  InbarLotem.out
+
+cat in1_InbarLotem | valgrind --tool=memcheck --leak-check=full ../WolfraMamat  > valcheck1 2>&1
+# extract the number of errors from the log
+LOG_ERROR=$(cat valcheck1 | grep "ERROR SUMMARY:" | cut -d' ' -f4)
+
+if [ $LOG_ERROR = 0 ]
+then
+        echo "Memory V"
+else
+        echo "Memory X"
+fi

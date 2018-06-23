@@ -23,7 +23,8 @@ public:
     polynom Integral() const;
 
     void printcoefs(ostream&)  const;
-    bool isZero() const;
+	void updateOrder();
+	bool isZero() const;
 
 protected:
 

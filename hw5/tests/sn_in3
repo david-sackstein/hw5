@@ -1,0 +1,27 @@
+SetPolynom p 2,3,1,-6
+SetPolynom q 1,1,-2
+SetPolynom a 1,0,2
+SetCompFunc q(p) q,p
+MathPolynom r p,/,q
+MathPolynom t q,/,p
+MathPolynom b q,/,a
+AddPoint b 0,1,2,3
+AddPoint r 0,1,-2,3
+MathRatFunc c b,/,t
+AddPoint c 0,1,2,-3
+AddPoint q(p) 0,1,2
+SetCompFunc r(q(p)) r,q(p)
+MathRatFunc s r,/,t
+AddPoint s 0,1,2,-3
+AddPoint r(q(p)) 0,1,2,3
+MathRatFunc x s,+,t
+MathRatFunc y s,/,t
+MathRatFunc z s,*,t
+AddPoint x 0,1,2,-3
+AddPoint y 0,1,-2,3
+AddPoint z 0,-1,2,3
+AddPoint t 0,1,2,-3
+SetCompFunc c(r(q(p))) c,r(q(p))
+AddPoint c(r(q(p))) 0,1,2,3
+Print All
+
