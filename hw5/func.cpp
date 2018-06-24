@@ -13,22 +13,23 @@ func::func() :
 
 func& func::operator<<(const int& x)
 {
-    if (fmap_.empty())
-    {
-        minVal_ = x;
-        maxVal_ = x;
-    }
-    else if(x < minVal_)
-    {
-        minVal_ = x;
-    }
-    else if (x > maxVal_)
-    {
-        maxVal_ = x;
-    }
-
     int res = apply(x);    
-    fmap_[x] = res;
+    
+	if (fmap_.empty())
+	{
+		minVal_ = x;
+		maxVal_ = x;
+	}
+	else if (x < minVal_)
+	{
+		minVal_ = x;
+	}
+	else if (x > maxVal_)
+	{
+		maxVal_ = x;
+	}
+	
+	fmap_[x] = res;
 
     return *this;
 }
@@ -127,7 +128,7 @@ void func::plot(ostream& os) const
         else os << "  " << i;
     }
 
-    //os << "\n"; int i = minVal_;
+    //os << endl; int i = minVal_;
     //for (vector<int>::iterator it_im = sortImage.begin();
     //    it_im != sortImage.end(); ++it_im)
     //{
@@ -137,7 +138,7 @@ void func::plot(ostream& os) const
     //        //print (x,y)
     //        if (it_dom->second == *it_im)
     //        {
-    //            os << "(" << it_dom->first << "," << *it_im << ")\n";
+    //            os << "(" << it_dom->first << "," << *it_im << ")" << endl;
     //        }
     //    }
 

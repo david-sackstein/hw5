@@ -1,8 +1,8 @@
-==22814== Memcheck, a memory error detector
-==22814== Copyright (C) 2002-2015, and GNU GPL'd, by Julian Seward et al.
-==22814== Using Valgrind-3.11.0 and LibVEX; rerun with -h for copyright info
-==22814== Command: ../WolfraMamat
-==22814== 
+==4247== Memcheck, a memory error detector
+==4247== Copyright (C) 2002-2015, and GNU GPL'd, by Julian Seward et al.
+==4247== Using Valgrind-3.11.0 and LibVEX; rerun with -h for copyright info
+==4247== Command: ../WolfraMamat
+==4247== 
 Error AddPoint:divide by zero
 Error AddPoint:divide by zero
 Error AddPoint:divide by zero
@@ -36,7 +36,7 @@ d(r)(x)=
 
 p(x)=x^2+1
 Derivative: 2x
-Integral: +x+C
+Integral: x+C
   5*           *  
   4
   3
@@ -46,7 +46,7 @@ Integral: +x+C
 
 q(x)=-x^2-x+2
 Derivative: -2x-1
-Integral: +2x+C
+Integral: 2x+C
   2*  
   1
   0      *  
@@ -54,29 +54,29 @@ Integral: +2x+C
 
 r(x)=(x^2+1)/(-x^2-x+2)
 Derivative: (-x^2+6x+1)/(x^4+2x^3-3x^2-4x+4)
-  0      *  
- -1            *  
-  -2 -1  0  1  2
+  0*  
+ -1      *  
+   0  1  2
 
 s(x)=-x+3
 Derivative: -1
-Integral: +3x+C
+Integral: 3x+C
   5*  
   -2
 
-==22814== 
-==22814== HEAP SUMMARY:
-==22814==     in use at exit: 72,704 bytes in 1 blocks
-==22814==   total heap usage: 101 allocs, 100 frees, 84,320 bytes allocated
-==22814== 
-==22814== LEAK SUMMARY:
-==22814==    definitely lost: 0 bytes in 0 blocks
-==22814==    indirectly lost: 0 bytes in 0 blocks
-==22814==      possibly lost: 0 bytes in 0 blocks
-==22814==    still reachable: 72,704 bytes in 1 blocks
-==22814==         suppressed: 0 bytes in 0 blocks
-==22814== Reachable blocks (those to which a pointer was found) are not shown.
-==22814== To see them, rerun with: --leak-check=full --show-leak-kinds=all
-==22814== 
-==22814== For counts of detected and suppressed errors, rerun with: -v
-==22814== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
+==4247== 
+==4247== HEAP SUMMARY:
+==4247==     in use at exit: 72,704 bytes in 1 blocks
+==4247==   total heap usage: 103 allocs, 102 frees, 93,064 bytes allocated
+==4247== 
+==4247== LEAK SUMMARY:
+==4247==    definitely lost: 0 bytes in 0 blocks
+==4247==    indirectly lost: 0 bytes in 0 blocks
+==4247==      possibly lost: 0 bytes in 0 blocks
+==4247==    still reachable: 72,704 bytes in 1 blocks
+==4247==         suppressed: 0 bytes in 0 blocks
+==4247== Reachable blocks (those to which a pointer was found) are not shown.
+==4247== To see them, rerun with: --leak-check=full --show-leak-kinds=all
+==4247== 
+==4247== For counts of detected and suppressed errors, rerun with: -v
+==4247== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)

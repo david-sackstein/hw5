@@ -35,7 +35,7 @@ compfunc& compfunc::operator=(const compfunc& rhs)
 
 void compfunc::print(ostream& os) const
 { 
-    os << "\n";
+    os << endl;
     // plot is in func print
 }
 

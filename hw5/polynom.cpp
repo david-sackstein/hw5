@@ -1,5 +1,7 @@
 #include "polynom.h"
+#include "mathexception.h"
 #include <algorithm>
+#include <climits>
 
 polynom::polynom(int n, int* coefs) :
 	n_(n),
@@ -40,16 +42,17 @@ int polynom::apply(int x) const
 polynom polynom::add(const polynom& rhs, int sign) const
 {
 	int newOrder = std::max(n_, rhs.n_);
-	int minOrder = n_ + rhs.n_ - newOrder;
+	int minOrder = std::min(n_, rhs.n_);
 
 	int* newCoefs = new int[newOrder + 1]; // poly of order A has A+1 coefs
-	for (int i = 0; i < newOrder + 1; i++)
+	int i = 0;
+	for (; i <= minOrder; i++)
 	{
-		if (i < minOrder + 1)
-		{
-			newCoefs[i] = coefs_[i] + sign * rhs.coefs_[i];
-		}
-		else if (i > rhs.n_ + 1)
+		newCoefs[i] = coefs_[i] + sign * rhs.coefs_[i];
+	}
+	for (; i <= newOrder; i++)
+	{
+		if (i > rhs.n_)
 		{
 			newCoefs[i] = coefs_[i];
 		}
@@ -194,6 +197,7 @@ polynom polynom::Integral() const // TODO: check logically again
 	polynom poly = polynom(newOrder, newCoefs);
 	delete[] newCoefs;
 
+	poly.updateOrder();
 	return poly;
 }
 
@@ -237,16 +241,16 @@ void polynom::printcoefs(ostream& os)  const {
 void polynom::print(ostream& os) const
 {
 	printcoefs(os);
-	os << "\n";
+	os << endl;
 
 	os << "Derivative: ";
 	Derivative().printcoefs(os);
-	os << "\n";
+	os << endl;
 
 	os << "Integral: ";
 	Integral().printcoefs(os);
 	os << "+C";
-	os << "\n";
+	os << endl;
 }
 
 func* polynom::clone() const

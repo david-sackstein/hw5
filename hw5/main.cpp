@@ -20,12 +20,14 @@ int main() {
   char func_cmd[MAXLINE], func_name[MAXLINE], func_value[MAXLINE];
   char* token;
  
+  func_cmd[0] = func_name[0] = func_value[0] = '\0';
+
   //std::ifstream input("in3");
 
-  while(!cin.eof()) {
-    cin >>func_cmd>>func_name>>func_value;
-  /*while(!input.eof()) {
-    input >>func_cmd>>func_name>>func_value;*/
+ /* while(!cin.eof()) {
+    cin >>func_cmd>>func_name>>func_value;*/
+  while(!input.eof()) {
+    input >>func_cmd>>func_name>>func_value;
     if (!strcmp(func_cmd, "//")) {
       continue;
     }

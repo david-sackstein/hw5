@@ -23,7 +23,7 @@ int ratfunc::apply(int x) const
 
 ratfunc ratfunc::add(const ratfunc& rhs, int sign) const
 {
-    return ratfunc(p_ * q_, q_*rhs.p_ + p_*rhs.q_);
+    return ratfunc(p_ * rhs.p_, q_*rhs.p_ + p_*rhs.q_);
 }
 
 ratfunc ratfunc::operator+(const ratfunc& rhs) const
@@ -65,11 +65,11 @@ void ratfunc::printRat(ostream& os) const
 void ratfunc::print(ostream& os) const
 {
     printRat(os);
-    os << "\n";
+    os << endl;
 
     os << "Derivative: ";
     Derivative().printRat(os);
-    os << "\n";
+    os << endl;
 }
 
 func* ratfunc::clone() const
